@@ -332,7 +332,7 @@
       </inertial>
     </link>
 
-    <link name="endeffector_type5">
+    <!-- <link name="endeffector_type5">
       <visual>
         <geometry>
           <mesh filename="package://harvesting_endeffector/type5/ee_type5.stl"/>
@@ -341,23 +341,6 @@
       <collision>
         <geometry>
           <mesh filename="package://harvesting_endeffector/type5/ee_type5.stl"/>
-        </geometry>
-      </collision>
-      <inertial>
-        <mass value="0.1"/>
-        <inertia ixx="0.00042" iyy="0.00042" izz="0.00042" ixy="0" ixz="0" iyz="0" />
-      </inertial>
-    </link>
-
-    <!-- <link name="endeffector_type6" >
-      <visual>
-        <geometry>
-          <mesh filename="package://harvesting_endeffector/type6/linear_cutting_endeffector-short_mirrer-main.stl" scale="0.001 0.001 0.001"/>
-        </geometry>
-      </visual>
-      <collision>
-        <geometry>
-          <mesh filename="package://harvesting_endeffector/type6/linear_cutting_endeffector-short_mirrer-main.stl" scale="0.001 0.001 0.001"/>
         </geometry>
       </collision>
       <inertial>
@@ -365,6 +348,23 @@
         <inertia ixx="0.00042" iyy="0.00042" izz="0.00042" ixy="0" ixz="0" iyz="0" />
       </inertial>
     </link> -->
+
+    <link name="endeffector_type6" >
+      <visual>
+        <geometry>
+          <mesh filename="package://harvesting_endeffector/type6/linear_cutting_endeffector-short_mirrer-main.stl" scale="0.001 0.001 0.001"/>
+        </geometry>
+      </visual>
+      <collision>
+        <geometry>
+          <mesh filename="package://harvesting_endeffector/type6/linear_cutting_endeffector-short_mirrer-main.stl" scale="0.001 0.001 0.001"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <mass value="0.1"/>
+        <inertia ixx="0.00042" iyy="0.00042" izz="0.00042" ixy="0" ixz="0" iyz="0" />
+      </inertial>
+    </link>
 
     <link name="endeffector_base">
       <visual>
@@ -621,24 +621,28 @@
     </joint>
 
 
-    <joint name="eebase_to_ee" type="fixed">
+    <!-- <joint name="eebase_to_ee" type="fixed">
       <origin xyz="0 0 0.05" rpy="-${pi/2.0} -${pi/2.0} 0"/>
       <parent link="endeffector_base"/>
       <child link="endeffector_type5"/>
     </joint>
 
-    <!-- <joint name="eebase_to_ee" type="fixed">
-      <origin xyz="0 0 0.105" rpy="-${pi/2.0} -${pi/2.0} 0"/>
-      <parent link="endeffector_base"/>
-      <child link="endeffector_type6"/>
+    <joint name="ee_to_cutter" type="fixed">
+      <origin xyz="0.315 -0.01 -0.024" rpy="${pi/2.0} 0 ${pi/2.0}"/>
+      <parent link="endeffector_type5"/>
+      <child link="endeffector_cutter"/>
     </joint> -->
 
 
+    <joint name="eebase_to_ee" type="fixed">
+      <origin xyz="0 0 0.105" rpy="-${pi/2.0} -${pi/2.0} 0"/>
+      <parent link="endeffector_base"/>
+      <child link="endeffector_type6"/>
+    </joint>
+
     <joint name="ee_to_cutter" type="fixed">
-      <origin xyz="0.315 -0.01 -0.024" rpy="${pi/2.0} 0 ${pi/2.0}"/>
-      <!-- <origin xyz="0.18 -0.01 -0.005" rpy="${pi/2.0} 0 ${pi/2.0}"/> -->
-      <!-- <parent link="endeffector_type5"/> -->
-      <parent link="endeffector_type5"/>
+      <origin xyz="0.18 -0.01 -0.005" rpy="${pi/2.0} 0 ${pi/2.0}"/>
+      <parent link="endeffector_type6"/>
       <child link="endeffector_cutter"/>
     </joint>
 
