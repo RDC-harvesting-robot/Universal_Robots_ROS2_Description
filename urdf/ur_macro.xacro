@@ -357,14 +357,14 @@
         <geometry>
           <!-- mesh filename="package://harvesting_endeffector/type5/ee_base.stl"/ -->
           <!--mesh filename="package://harvesting_endeffector/type6/Final.stl" scale="0.001 0.001 0.001"/ -->
-          <mesh filename="package://harvesting_endeffector/type7/EndEffector_Verical_v2.stl" scale="0.001 0.001 0.001"/>
+          <mesh filename="package://harvesting_endeffector/type7/EndEffector_Verical_v2_double.stl"/>
         </geometry>
       </visual>
       <collision>
         <geometry>
           <!-- mesh filename="package://harvesting_endeffector/type5/ee_base.stl"/ -->
           <!-- mesh filename="package://harvesting_endeffector/type6/Final.stl" scale="0.001 0.001 0.001"/ -->
-          <mesh filename="package://harvesting_endeffector/type7/EndEffector_Verical_v2.stl" scale="0.001 0.001 0.001"/>
+          <mesh filename="package://harvesting_endeffector/type7/EndEffector_Verical_v2_double.stl"/>
           
         </geometry>
       </collision>
@@ -589,8 +589,14 @@
       <child link="${tf_prefix}tool0"/>
     </joint>
 
-    <joint name="tool0_to_ee_base" type="fixed">
+    <!-- <joint name="tool0_to_ee_base" type="fixed">
       <origin xyz="0 0 -0.05" rpy="0.0 0.0 0.0"/>
+      <parent link="${tf_prefix}tool0"/>
+      <child link="endeffector_base"/>
+    </joint> -->
+
+    <joint name="tool0_to_ee_base" type="fixed">
+      <origin xyz="0 0 0.138" rpy="0.0 ${pi} 0.0"/>
       <parent link="${tf_prefix}tool0"/>
       <child link="endeffector_base"/>
     </joint>
