@@ -449,13 +449,13 @@
     </joint>
 
     <joint name="base_link_to_cart_collider" type="fixed">
-      <origin xyz="-0.25 0 -0.151" rpy="0 0 0"/>
+      <origin xyz="-0.3 0 -0.151" rpy="0 0 0"/>
       <parent link="${tf_prefix}base_link"/>
       <child link="cart_collider"/>
     </joint>
 
     <joint name="base_link_to_arm_collider" type="fixed">
-      <origin xyz="-0.4 0 0.251" rpy="0 0 0"/>
+      <origin xyz="-0.55 0 0.251" rpy="0 0 0"/>
       <parent link="${tf_prefix}base_link"/>
       <child link="arm_collider"/>
     </joint>
@@ -602,7 +602,7 @@
     </joint>
 
     <xacro:sensor_d435 parent="endeffector_base" name="head_camera">
-      <origin xyz="0 0.080 0.014" rpy="0 0 ${pi/2.0}"/>       
+      <origin xyz="0 0.080 -0.011" rpy="0 0 ${pi/2.0}"/>       
       <!-- origin xyz="0 0.074 0.06" rpy="0.0 -1.5271630953540196 -1.570876783818119"/ -->
       <!-- <origin xyz="0 0.074 0.06" rpy="-1.570834 -1.483529 3.14155050"/> -->
        <xacro:arg name="use_nominal_extrinsics" default="false" />
